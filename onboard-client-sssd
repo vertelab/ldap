@@ -58,7 +58,7 @@ sudo sudo chmod 440 ~/mycacert.crt && sudo chown root:root ~/mycacert.crt
 sudo mv ~/mycacert.crt /usr/local/share/ca-certificates/
 sudo update-ca-certificates
 
-echo -e "\nAuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys\nAuthorizedKeysCommandUser nobody" | sudo tee -a /etc/ssh/sshd_config
+echo -e "\nAuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys\nAuthorizedKeysCommandUser root" | sudo tee -a /etc/ssh/sshd_config
 
 sudo pam-auth-update --enable mkhomedir
 sudo systemctl restart sssd.service ssh.service
