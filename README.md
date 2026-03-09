@@ -47,11 +47,6 @@ Add the following to the file /etc/sssd/sssd.conf
 [sssd]
 config_file_version = 2
 domains = fd.vertel.se
-services = ssh
-
-[ssh]
-ssh_authorized_keys_cache_timeout = 60
-ldap_user_ssh_public_key = sshPublicKey
 
 [domain/fd.vertel.se]
 #debug_level = 9
@@ -64,6 +59,9 @@ ldap_search_base = ou=vertel,dc=nodomain
 ldap_access_filter = (uid=*)
 ldap_tls_reqcert = allow
 ldap_tls_cacert = /etc/ssl/certs/mycacert.pem
+
+ssh_authorized_keys_cache_timeout = 60
+ldap_user_ssh_public_key = sshPublicKey
 ```
 
 <br>
